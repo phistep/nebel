@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# LaTex
+*.toc
+*.out
+*.synctex.gz
+*.log
+*.aux
+*.fdb_latexmk
+
+# Bib(La)Tex / Biber
+*.bbl
+*.blg
+*.bcf
+*.fls
+*.run.xml
+*-blx.bib
+
+# Output
+*.pdf
+

@@ -1,0 +1,331 @@
+% KOMA-Script layout settings
+\documentclass[
+	final,
+	a4paper,
+	ngerman,
+	mpinclude = true, % include marginpar in textwidth for headsepline
+	twoside = true,
+	open = right,
+	cleardoublepage = plain,
+	DIV = 13,
+	BCOR = 1cm,
+	titlepage = firstiscover,
+	]{scrbook}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{luainputenc}
+
+\usepackage{xspace}
+\usepackage{calc} % \widthof
+
+% margin notes
+\setlength{\marginparwidth}{1.8\marginparwidth}
+\setlength{\marginparsep}{10mm} % line numbers
+\newcommand{\marginnote}[1]{\marginpar{\singlespacing\raggedright\footnotesize#1}}
+
+% custom formatting for acts and scenes
+\addtokomafont{sectioning}{\rmfamily\scshape\mdseries\centering}
+\newcommand{\act}{\chapter}
+\renewcommand*{\raggedsection}{\centering}
+\renewcommand*{\chapterformat}{}
+\renewcommand*{\chaptermarkformat}{}
+\newcommand{\scene}{\setcounter{subscene}{1}\section}
+\RedeclareSectionCommand[style=chapter]{section}
+\renewcommand*{\sectionformat}{Szene \thesection~— }
+\renewcommand*{\sectionmarkformat}{Szene \thesection~— }
+\newcommand{\direction}[1]{(\textit{#1})}
+\newcommand{\setting}[1]{\vspace{-0.5\baselineskip}\centering\textit{#1}}
+\newcommand{\hiat}{%
+	\begin{center}
+		\tiny
+		\raisebox{0.5ex}{\rule{0.3\linewidth}{0.4pt}}
+		\textit{fickstrich}
+		\raisebox{0.5ex}{\rule{0.3\linewidth}{0.4pt}}
+	\end{center}
+}
+% TODO refstepcounter
+\newcounter{subscene}
+\setcounter{subscene}{1}
+\newcommand{\subscene}{\marginnote{Szene \arabic{chapter}.\arabic{section}.\alph{subscene}}\stepcounter{subscene}}
+
+% "Elements of Typographic Style" table of contents
+\DeclareTOCStyleEntry[
+		raggedpagenumber=true,
+		linefill = {},
+		entrynumberformat = {\phantom},
+		indent = 0cm,
+	]{tocline}{chapter}
+\newlength{\scenenumwidth}
+\setlength{\scenenumwidth}{\widthof{Szene 8.88 }}
+\DeclareTOCStyleEntry[
+		raggedpagenumber = true,
+		linefill = {},
+		indent = 0.3\linewidth,
+		entrynumberformat = {{\footnotesize{\textsc{Szene}}}\enspace},
+		numwidth = \scenenumwidth,
+	]{tocline}{section}
+
+% header
+\usepackage[
+		automark,
+		headsepline,
+		headwidth=textwithmarginpar,
+	]{scrlayer-scrpage}
+	\pagestyle{scrheadings}
+	\ihead{}
+	\chead{}
+	\ohead{}
+	\cehead{\leftmark}
+	\cohead{\rightmark}
+
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+
+% typography
+\usepackage{ebgaramond}
+\usepackage{microtype}
+\usepackage{setspace} % one-half spacing
+\usepackage[modulo,running]{lineno} % line numbers
+	%\renewcommand{\thelinenumber}{\thesection.\arabic{linenumber}}
+	\renewcommand{\thelinenumber}{\arabic{section}.\arabic{linenumber}}
+\usepackage{csquotes}
+\usepackage{siunitx}
+
+% special version for directors
+\usepackage{substr}
+\newcommand{\ifdirectorsversion}[2]{%
+	\IfSubStringInString{\detokenize{regie}}{\jobname}{#1}{#2}
+}
+
+% two column layout for character names and lines
+\usepackage{enumitem}
+\newlist{play}{description}{1}
+\newlength{\widthofchar}
+\setlength{\widthofchar}{\widthof{\textsc{Schwester\quad}}}
+\setlist[play]{
+	labelwidth=\widthofchar,
+	leftmargin=!,
+	font=\rmfamily\mdseries\scshape,
+	itemsep=0pt,
+	before={\linenumbers*}
+}
+
+% gray out deletions
+\usepackage{xcolor}
+\usepackage{comment}
+\ifdirectorsversion{%
+	\newenvironment{deletion}{%
+		\vspace{0.25\baselineskip}
+		\hrule
+		\vspace{0.25\baselineskip}
+		\color{darkgray}
+	}{
+		\color{black}
+		\vspace{0.25\baselineskip}
+		\hrule
+		\vspace{0.25\baselineskip}
+	}
+}{%
+	\excludecomment{deletion}
+}
+
+% list of characters at the beginning of a scene
+\newcommand{\characterlist}[1]{{\begin{center}\textit{Personen} #1\end{center}}}
+
+% PDF options
+\usepackage[final,hidelinks]{hyperref}
+	\hypersetup{
+		unicode     = true,
+		linktoc     = all,
+		pdftitle    = {Der Nebel von Dybern},
+		pdfauthor   = {Maria Lazar},
+		pdfsubject  = {Ein Drama},
+		pdflang     = de-DE,
+		pdfdisplaydoctitle = true,
+	}
+	\ifdirectorsversion{\hypersetup{pdftitle={Der Nebel von Dybern (Regie-Version)}}}{}
+	\addto\extrasngerman{
+		\renewcommand{\chapterautorefname}{Akt}
+		\renewcommand{\sectionautorefname}{Szene}
+	}
+\usepackage{bookmark} % toc in PDF bookmarks
+
+% shortcuts for characters
+% within line
+\newcommand{\thecharacter}[1]{\textup{\textsc{#1}}\xspace}
+\newcommand{\theBarbara}{\thecharacter{Barbara}}
+\newcommand{\theJosef}{\thecharacter{Josef}}
+\newcommand{\theKathrine}{\thecharacter{Kathrine}}
+\newcommand{\theGregor}{\thecharacter{Gregor}}
+\newcommand{\theJan}{\thecharacter{Jan}}
+\newcommand{\theAndreas}{\thecharacter{Andreas}}
+\newcommand{\theLuise}{\thecharacter{Luise}}
+\newcommand{\theAgnes}{\thecharacter{Agnes}}
+\newcommand{\theGeneraldirektor}{\thecharacter{Generaldirektor}}
+\newcommand{\theClarisse}{\thecharacter{Clarisse}}
+\newcommand{\theAlexis}{\thecharacter{Alexis}}
+\newcommand{\theThomsen}{\thecharacter{Doktor Thomsen}}
+\newcommand{\theJonas}{\thecharacter{Doktor Jonas}}
+\newcommand{\theSalwin}{\thecharacter{Salwin}}
+\newcommand{\theOberst}{\thecharacter{Oberst Brix}}
+\newcommand{\theMelchior}{\thecharacter{Melchior}}
+\newcommand{\theHeilsarmeeschwester}{\thecharacter{Heilsarmeeschwester}}
+\newcommand{\theErsterMann}{\thecharacter{Erster Mann}}
+\newcommand{\theZweiterMann}{\thecharacter{Zweiter Mann}}
+\newcommand{\theSergeant}{\thecharacter{Sergeant}}
+\newcommand{\theDiener}{\thecharacter{Diener}}
+\newcommand{\theKinder}{\thecharacter{Kinder}}
+\newcommand{\theLeute}{\thecharacter{Leute}}
+\newcommand{\theSoldaten}{\thecharacter{Soldaten}}
+
+% speaker of line
+\newcommand{\character}[1]{\item[#1]}
+\newcommand{\Barbara}{\character{\theBarbara}}
+\newcommand{\Josef}{\character{\theJosef}}
+\newcommand{\Kathrine}{\character{\theKathrine}}
+\newcommand{\Gregor}{\character{\theGregor}}
+\newcommand{\Jan}{\character{\theJan}}
+\newcommand{\Andreas}{\character{\theAndreas}}
+\newcommand{\Luise}{\character{\theLuise}}
+\newcommand{\Agnes}{\character{\theAgnes}}
+\newcommand{\Generaldirektor}{\character{\Generaldirektor}}
+\newcommand{\Clarisse}{\character{\theClarisse}}
+\newcommand{\Alexis}{\character{\theAlexis}}
+\newcommand{\Thomsen}{\character{\theThomsen}}
+\newcommand{\Jonas}{\character{\theJonas}}
+\newcommand{\Salwin}{\character{\theSalwin}}
+\newcommand{\Oberst}{\character{\theOberst}}
+\newcommand{\Melchior}{\character{\theMelchior}}
+\newcommand{\Heilsarmeeschwester}{\character{\theHeilsarmeeschwester}}
+\newcommand{\ErsterMann}{\character{\theErsterMann}}
+\newcommand{\ZweiterMann}{\character{\theZweiterMann}}
+\newcommand{\Sergeant}{\character{\theSergeant}}
+\newcommand{\Diener}{\character{\theDiener}}
+\newcommand{\Kinder}{\character{\theKinder}}
+\newcommand{\Leute}{\character{\theLeute}}
+\newcommand{\Soldaten}{\character{\theSoldaten}}
+
+% cover
+\usepackage{pdfpages}
+
+% title page
+\addtokomafont{titlehead}{\scshape\lsstyle}
+\titlehead{\centering Wery Important Production Berlin}
+\title{Der Nebel von Dybern}
+\subtitle{Ein Drama}
+\author{Maria Lazar}
+\date{\ifdirectorsversion{-- Regie-Version --}{}}
+\publishers{S. Fischer Verlag}
+\uppertitleback{%
+	\centering
+	\addsec*{Dramatis Person\ae}
+	\vspace{\baselineskip}
+	\raggedright
+    \theBarbara, \quad schwanger\\
+    \theJosef, \quad ihr Mann\\
+    \theKathrine, \quad blind\\
+    \theGregor\\
+    \theJan\\
+    \theAndreas\\
+    \theLuise\\
+    \theAgnes\\
+    Paul, der \theGeneraldirektor der Chemiefrabrik\\
+    \theClarisse, \quad seine Frau\\
+    \theAlexis, \quad Ingenieur\\
+    \theThomsen, \quad Arzt\\
+    \theJonas, \quad Arzt\\
+    \theSalwin, \quad Journalist\\
+    \theOberst\\
+    Jakob \theMelchior\\
+    \theHeilsarmeeschwester\\
+    \theErsterMann\\
+    \theZweiterMann\\
+    \theSergeant\\
+    \theDiener\\
+    \theKinder,  \theLeute und \theSoldaten.
+}
+\lowertitleback{%
+	\footnotesize
+	\centering
+	Version vom \today.\\
+	\vspace{0.5\baselineskip}
+	Erschienen 1932 bei \textsc{S. Fischer, Verlag A.G. Berlin}.\\
+	\vspace{0.5\baselineskip}
+	Gesetzt mit \LaTeX{} und \KOMAScript{} in EBGaramond.\\
+}
+
+\begin{document}
+\pagenumbering{alph}
+%\includepdf{cover/cover}
+\cleardoubleoddemptypage
+
+\pagenumbering{roman}
+\maketitle
+
+\pdfbookmark[chapter]{\contentsname}{toc}
+\tableofcontents
+\cleardoubleoddpage
+
+\pagestyle{headings}
+\pagenumbering{arabic}
+\doublespacing
+
+\act{Erster Akt}
+\scene{Der Nebel}
+\characterlist{\theBarbara, \theJosef, \theKathrine, \theGregor, \theJan, \theAndreas, \theThomsen, \theAgnes}
+\setting{Eine einfache, saubere Wirtsstube. Frühe Nachmittagsdämmerung, schläfriges Licht. Auf der Fensterbank sitzt \theJosef mit einer Zeitung, an den Kachelofen gelennt, hockt die alte \theKathrine. \theJosef ist ein behäbiger, etwas dicker Mensch. \theKathrine ist blind. Sie starrt immer vor sich hin, als ob sie etwas sehen würde.}
+
+\begin{play}
+
+\Barbara
+\direction{Eine tiefe volle Frauenstimme singt} \ldots Eia popeia, was raschelt im Stroh ---
+
+\Josef
+\direction{hebt den Kopf gegen die Decke} Barbara!
+
+\Barbara
+\direction{singed} Ja ---
+
+\Josef
+Wenn du schon wach bist, dann komm doch herunter. Wir wollen Kaffee.
+
+\Barbara
+Ist jemana da?
+
+\Josef
+Mutter Katrhine
+
+\Barbara
+\direction{weiter singend}
+.. das sind die lieben Gänselein, die haben kein Schuh.
+Der Schuser hat's Leder, kein Leisten dazu
+\direction{stimme verklingt}
+
+\Kathrine
+Lass sie in Ruh. Sie kommt immer noch früh genug. Sie kommt viel zu früh, und wir brauchen keinen Kaffee.
+
+\Josef
+Ja, ja, schon gut. \direction{blättert in der Zeitung}
+
+\Kathrine
+Was steht denn da in der Zeitung drin? Du liest doch die Zeitung Schöne Geschichten, Sonntagsgeschichten?
+
+\Josef
+Ja, ja, so was ähnliches.
+
+\Kathrine
+Ich brauch keine Zeitung, ich kann sie nicht lesen, ich hab keine Augen. Ich hab meine Ohren.
+
+\end{play}
+
+\scene{Kriesensitzung}
+\scene{Im Flüchtlingslager}
+\scene{Hungrige Mäuler}
+\scene{Nachbohren}
+
+\act{Zeiter Akt}
+\scene{Irrungen}
+\scene{Zusammenbruch}
+
+\end{document}
