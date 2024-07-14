@@ -80,7 +80,8 @@ def texify(text: str) -> str:
 
     text = re.sub(r'([A-Z][a-z]+): ?', r'\n\\\1\n', text)
 
-    text = re.sub(r'\.\.\.', r'\\ldots', text)
+    text = text.replace('...', r'\ldots')
+    text = text.replace(' - ', ' --- ')
 
     text = re.sub(r'\((.*)\)', r'\\direction{\1}', text)
 
