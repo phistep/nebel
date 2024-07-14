@@ -67,6 +67,13 @@ def clean_text(text: str) -> str:
     text = text.replace('Katerine', 'Katherine')
     text = text.replace('BARAARA', 'BARBARA')
     text = text.replace('Baraara', 'Barbara')
+    text = re.sub(r'(?<!GENERAL)DIREKTOR', r'GENERALDIREKTOR', text)
+    text = re.sub(r'^\W* ?DIREKTOR', r'GENERALDIREKTOR', text)
+    text = re.sub(r'[^T]HOMSEN', r'THOMSEN', text)
+    text = text.replace('Homsen', 'Thomsen')
+    text = re.sub(r'\wAe', r'Ä', text)
+    text = re.sub(r'\wOe', r'Ö', text)
+    text = re.sub(r'\wUe', r'Ü', text)
     return text
 
 
