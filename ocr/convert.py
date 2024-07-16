@@ -61,41 +61,53 @@ def clean_text(text: str) -> str:
     # resolve typewriter linebreaks
     text = text.replace('\n', '')
     # ever speaker on its own line
-    text = re.sub(r'([A-Z]{3,}: )', r'\n\1', text)
+    text = re.sub(r'([A-Z ]{3,}: )', r'\n\1', text)
     # common typos
+    text = re.sub(r'\wAe', r'Ä', text)
+    text = re.sub(r'\wOe', r'Ö', text)
+    text = re.sub(r'\wUe', r'Ü', text)
     text = text.replace('KATERINE', 'KATHERINE')
     text = text.replace('Katerine', 'Katherine')
     text = text.replace('BARAARA', 'BARBARA')
     text = text.replace('Baraara', 'Barbara')
-    text = re.sub(r'(?<!GENERAL)DIREKTOR', r'GENERALDIREKTOR', text)
+    text = re.sub(r'(?<!GENERAL ?)DIREKTOR', r'GENERALDIREKTOR', text)
     text = re.sub(r'^\W* ?DIREKTOR', r'GENERALDIREKTOR', text)
     text = re.sub(r'[^T]HOMSEN', r'THOMSEN', text)
     text = text.replace('Homsen', 'Thomsen')
-    text = re.sub(r'\wAe', r'Ä', text)
-    text = re.sub(r'\wOe', r'Ö', text)
-    text = re.sub(r'\wUe', r'Ü', text)
+    text = re.sub(r'[^A]LEXIS', r'ALEXIS', text)
     return text
 
 
 def texify(text: str) -> str:
+    # SPEAKER: -> \Speaker\n
     # while modifying, the already generated matches are becoming
     # outdated. first title-case then texify later
-    for match in re.finditer('([A-Z]{3,}):', text):
+    # TODO loop with start and do all transformations in one place
+    for match in re.finditer('([A-Z ]{3,}):', text):
         name = match.group(1)
         start, end = match.span(1)
         text = text[:start] + name.title() + text[end:]
+    text = re.sub(r'((([A-Z][a-z]+) ?)+): ?', r'\n\\\1\n', text)
+    text = text.replace(r'\Erster Mann', r'\ErsterMann')
+    text = text.replace(r'\Zweiter Mann', r'\ZweiterMann')
 
-    text = re.sub(r'([A-Z][a-z]+): ?', r'\n\\\1\n', text)
+    text = text.replace(r'\Die Beiden Maenner',
+                        ('\\ErsterMann \\direction{gemeinsam}\n'
+                         '\\ZweiterMann'))
+    text = text.replace(r'\Die Leute', r'\Leute')
 
-    text = text.replace('...', r'\ldots')
-    text = text.replace(' - ', ' --- ')
 
-    text = re.sub(r'\((.*)\)', r'\\direction{\1}', text)
+    # (...) -> \direction{...}
+    text = re.sub(r'\(([^(]+)\)', r'\\direction{\1}', text)
 
-    #  -> \end{play}\n\begin{play}
+    # I. A K T -> \end{play}\n\begin{play}
     text = re.sub(r'([IV]+)\. A K T',
                   r'\n\\end{play}\n\n\\scene{\1}\n\\begin{play}\n',
                   text)
+
+    text = text.replace('...', r'\ldots{}')
+    text = text.replace(' - ', ' --- ')
+
     return text
 
 

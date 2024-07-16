@@ -131,7 +131,7 @@
 }
 
 % list of characters at the beginning of a scene
-\newcommand{\characterlist}[1]{{\begin{center}\textit{Personen} #1\end{center}}}
+\newcommand{\characterlist}[1]{{\begin{center}\textit{Personen:}\quad{}#1\end{center}}}
 
 % PDF options
 \usepackage[final,hidelinks]{hyperref}
@@ -171,8 +171,8 @@
 \newcommand{\theOberst}{\thecharacter{Oberst Brix}}
 \newcommand{\theMelchior}{\thecharacter{Melchior}}
 \newcommand{\theHeilsarmeeschwester}{\thecharacter{Heilsarmeeschwester}}
-\newcommand{\theErsterMann}{\thecharacter{Erster Mann}}
-\newcommand{\theZweiterMann}{\thecharacter{Zweiter Mann}}
+\newcommand{\theErsterMann}{\thecharacter{Erster~Mann}}
+\newcommand{\theZweiterMann}{\thecharacter{Zweiter~Mann}}
 \newcommand{\theSergeant}{\thecharacter{Sergeant}}
 \newcommand{\theDiener}{\thecharacter{Diener}}
 \newcommand{\theKinder}{\thecharacter{Kinder}}
@@ -197,14 +197,15 @@
 \newcommand{\Salwin}{\character{\theSalwin}}
 \newcommand{\Oberst}{\character{\theOberst}}
 \newcommand{\Melchior}{\character{\theMelchior}}
-\newcommand{\Heilsarmeeschwester}{\character{\theHeilsarmeeschwester}}
-\newcommand{\ErsterMann}{\character{\theErsterMann}}
-\newcommand{\ZweiterMann}{\character{\theZweiterMann}}
+\newcommand{\Heilsarmeeschwester}{\character{Schwester}}
+\newcommand{\ErsterMann}{\character{1. Mann}}
+\newcommand{\ZweiterMann}{\character{2. Mann}}
 \newcommand{\Sergeant}{\character{\theSergeant}}
 \newcommand{\Diener}{\character{\theDiener}}
 \newcommand{\Kinder}{\character{\theKinder}}
 \newcommand{\Leute}{\character{\theLeute}}
 \newcommand{\Soldaten}{\character{\theSoldaten}}
+\newcommand{\Stimme}{\character{\emph{Stimme}}}
 
 % cover
 \usepackage{pdfpages}
@@ -1231,7 +1232,7 @@ Das ist doch eine gottverfluchte Gemeinheit.
 Wie meinen Sie, Herr Ingenieur Alexis? Leiter der Abteilung A, nicht wahr?
 
 \Alexis
-\marginnote{\emph{Feigling}. (Das äußere Geschlechtsteil einer Hündin.)}
+\marginnote{\emph{Feigling}.\par(Das äußere Geschlechts\-teil einer Hündin.)}
 Ich meine, dass jeder ein Hundsfott ist und ein Vaterlands verräter, der solche Gerüchte verstreut.
 
 \Salwin
@@ -1316,6 +1317,605 @@ Gasmasken? Ich --- ich habe keine Gasmasken.
 
 
 \scene{Im Flüchtlingslager}
+\characterlist{\theHeilsarmeeschwester, \theJan, \theLuise, \theGregor, \theErsterMann, \theZweiterMann, \theGeneraldirektor, \theAlexis, \emph{Gestalten}}
+\setting{Vorraum des Kinos. Photos an den Wänden. Im Hintergrund eine breite Treppe, die nach abwärts führt. Links ein großes, leeres Buffet, rechts eine Kasse, in der eine junge \theHeilsarmeeschwester sitzt, Herein kommen \theJan, \theLuise und \theGregor. \theLuise und \theGregor bleiben etwas betroffen in der Türe stehen, \theJan geht mitstark posierter Unbefangenheit auf die Kassezu.}
+\begin{play}
+
+\Jan
+Tag, schönes Kind. Wir brauchen drei Billets für die heutige Abendvorstellung.
+
+\Heilsarmeeschwester
+Pst, sprechen Sie doch nicht so laut. Die armen Leute untens chlafen schon.
+
+\Jan
+Was Sie nicht sagen. Die Leute schlafen. Das ist mir ja ein nettes Kino.
+
+\Luise
+Quatsch nicht, Jan. Was sollen die dummen Witze. Frag lieber die Schwester ---
+
+\Jan
+Wieso Schwester. Siehst du denn nicht, dass das ein Leutnant ist. Da muss unsereiner wohl salutieren. \direction{salutiert}
+
+\Heilsarmeeschwester
+Der junge Mann ist abergut gelaunt.
+
+\Gregor
+Hören Sie nicht auf ihn, liebe Schwester. Und seien Sie uns nicht böse, wenn wir stören. Wir kamen nur eben vorbei, und es ist hier so merkwürdig still.
+
+\Heilsarmeeschwester
+Die armen Leute sind müde von alle den Aufregungen. Sie liegen schon seit einer halben Stunde in ihrenBetten. Vorher hatten wir noch einen wunderbaren Gottesdienst. Wollen Sie vielleicht auch morgen einem solchen beiwohnen?
+
+\Jan
+\direction{indem er am Buffet herumschnüffelt} Und was zu trinken da war, habt ihr ausgesoffen, Pfui Teufel, ist ja alles leer.
+
+\Heilsarmeeschwester
+Gott bewahre. Wir haben Alkoholverbot.
+
+\Luise
+Finden da unten wirklich siebenhundert Menschen Platz?
+
+\Heilsarmeeschwester
+Die armen Leute liegen zu Dritt und zu Viert in den Betten. Einige sogar auf dem nackten Fussboden. Aber sie ertragen ihr hartes Schicksal mit Geduld.
+
+\Gregor
+Und wie lange soll das dauern?
+
+\Heilsarmeeschwester
+Das weiss Gott.
+
+\Jan \direction{auf dem Buffet sitzend, mit den Beinen baumelnd} Du sollst den Namen Gottesnicht eitel nennen.
+
+\Heilsarmeeschwester
+Wie? Was meint der junge Mann?
+
+\Gregor
+Sie dürfen nicht auf ihn hören, Schwester. Er ist ein Hanswurst. Geh, schäm dich, Jan.
+
+\Jan
+Warum denn? Ich versteh euch nicht. Das ist doch ein frommer Satz, nicht wahr,Schwester Leutnant. Sogar einer von den zehn Geboten. Wo hab ich das nur unlängst gehört? Wo war das Luise?
+
+\Luise
+Ach, Jan, erinnere mich nicht daran.Es war zu grässlich. \direction{setzt sich auf einen kleinen Hocker neben dem Buffet}
+
+\Jan
+Du darfst nicht böse sein, Luise, aber es fällt mir wirklich erst jetzt wieder ein.Das war doch die alte Kathrine.
+
+\Luise
+Ich begreife überhaupt nicht, dass Barbara sie so auf die Dauer erträgt. Sie geht ihr ja nicht von der Seite seit -seit damals. Und dazu noch das Haus voll von Flüchtlingskindern.
+
+\Heilsarmeeschwester
+Sie reden wohl von der Frau vom Wirtshaus am Rand. Ja, das muss eine gute Frau sein. Die gehört nicht zu denen, die den Kopf hängen lassen und an Gott verzweifeln, obwohl er sie doch selbst so hart geschlagen hat.
+
+\Gregor
+\direction{neben dem Billetschalter} Woher wissen Sie denn von ihr?
+
+\Heilsarmeeschwester
+Wir haben mehrere Frauen dort unten, die ihre Kinder bei ihr zurücklassen mussten. Hallo, was ist das, was wollt ihr denn? \direction{zwei Männer in Hemdärmeln, nur dürftig bekleidet, sind eben die Treppe heraufgekommen}
+
+\ErsterMann
+Ich halt es nicht aus, wir sind zu Dritt in einem Bett.
+
+\ZweiterMann
+Und ich ersticke.
+
+\Heilsarmeeschwester
+Aber, aber, wer wird sich denn so gehen lassen. \direction{die beiden Männer setzen sich mutlos auf die oberste Treppenstufe}
+
+\ErsterMann
+Die Frau neben mir stöhnt die ganze Zeit.
+
+\ZweiterMann
+Und ich geh auch nicht mehr runter in diese Holle Dann lieber noch in den Nebel hinaus. Da wird einer wenigstens gleich kaputt.
+
+\Heilsarmeeschwester
+Wollt ihr die ersten sein, die verzagen? Habt ihr nicht mitgesungen heute Abend bei unserem tröstenden Gottesdienst?
+
+\Jan
+\direction{Ist vom Buffet gesprungen und geht suchend an den Wänden hin und her.} Sagen Sie mal, fromme Schwester, gibt es denn in diesem großartigen und herrlichen Kino keine anständige Ventilation
+
+\Heilsarmeeschwester
+Ich weiß von nichts. Aber ich bitte euch, liebe Leute \direction{tritt aus dem Schalter heraus und auf die beiden Männer zu} wollet jetzt keine Ausnahme machen. Geht hinunter zu euren Brüdern und ertragt geduldig das gemeinsame Los.
+
+\ErsterMann
+Ich pfeif' auf dieses gemeinsame Los. Da steckt man uns in so ein Hundeloch.
+
+\ZweiterMann
+Und ich hol meine paar Sachen und geh. Und wenn ich an den Türen betteln muss.
+
+\Heilsarmeeschwester
+\direction{mit aufgehobenen Händen} Bitte, bitte, tut das nicht. Niemand weiß, was der Himmel noch über uns vorhängt. Nur so lange wir wahrhaft einig bleiben, kommt zu dem Zorn des Herrn nicht auch noch die rohe Gewalt der Menschen. Werdet nur jetzt nicht zu Landstreichern. Gehorcht der Ordnung und Disziplin.
+
+\ErsterMann
+Das Mensch ist verrückt.
+
+\ZweiterMann
+Kann ihr keiner das Maul stopfen.
+
+\Heilsarmeeschwester
+Ich bete für euch \direction{steht abgewendet mit gefalteten Händen}
+
+\Gregor
+\direction{tritt auf die beiden Männer zu} Ihr seid aus Dybern?
+
+\ErsterMann
+Ja.
+
+\Gregor
+Evakuiert?
+
+\ErsterMann
+Was fragst du noch?
+
+\Gregor
+Einer von euch kann bei mir schlafen,
+
+\ErsterMann
+Oh.
+
+\Gregor
+Für zwei ist meine Kammer zu klein,
+
+\ErsterMann
+Dann soll der da mit. Er ist noch elender.
+
+\ZweiterMann
+Geh du nur selbst, ich bring mich auch durch auf der Straße.
+
+\Heilsarmeeschwester
+Halleluja, gepriesen sei Gott und unser Heiland, der Erlöser.
+
+\Jan
+\direction{der immer noch an den Wänden herumschleicht} Der andere kann zu uns, nicht wahr, Luise, du hast nichts dagegen?
+
+\Luise
+Wir werden schon noch einen Strohsack auftreiben.
+
+\Jan
+Aber du bleibst im Bett, und schnarchen darf er nicht.
+
+\Heilsarmeeschwester
+Halleluja, halleluja.
+
+\Jan
+Hören Sie doch auf mit dem Geplärr, Schwester Leutnant, Sie wecken ja die armen Leute unten.
+
+\Heilsarmeeschwester
+Gesegnet sei der Herr, der das menschliche Herz erweicht und den menschlichen Sinn.
+
+\direction{\theErsterMann und \theZweiterMann stehen auf, sehr verlegen}
+
+\ErsterMann
+Ich dank auch schön
+
+\ZweiterMann
+--- ich dank auch schön.
+
+\Jan
+\direction{klopft plötzlich an die Wand} Hallo, Schwester, was ist denn das? Das klingt ja hohl.
+
+\Heilsarmeeschwester
+Ich weiss es nicht, ich weiß es nicht.
+
+\Jan
+Kommt mal alle her und hört euch das an. \direction{klopft weiter, die andern stellen sich um ihn herum}
+
+\Heilsarmeeschwester
+Lassen Sie doch unsere Wände in Ruh.
+
+\Jan
+Passt auf, die Wand muss sich sicher wo öffnen lassen. Weg, Schwester. \direction{schiebt sie zur Seite} Sie haben hier nichts zu befehlen.
+
+\Heilsarmeeschwester
+Ich habe hier alles zusagen, ich, wer denn sonst. Mir ist das Flüchtlingslager überantwortet, und ichverbiete euch
+
+\Jan
+Seht ihr den feinen Strich dort an derWand. Dünn wie Spinn web. Da muss doch irgendwo ein Griff oder ein Hebel sein.
+
+\Heilsarmeeschwester
+Hier werden keine Untersuchungen angestellt. Und ich befehle euch im Namen des Herrn
+
+\Jan
+Welches Herrn?
+
+\Heilsarmeeschwester
+Im Namen Gottes, der denGehorsam verlangt: Geht nach Hause, meine Lieben, ich bitte euch. Ihr werdet es sicherlich nicht bereuen. Und nehmt diebeiden Gäste mit, die ihr in eurer Herzensgüte \direction{die andern sprechen jetzt fast gleichzeitig}
+
+\Luise
+Sich doch mal nach hinter dem Schalter,Jan.GREGOR Jetzt möchte ich aber schon selberwissen
+
+\ErsterMann \direction{gemeinsam}
+\ZweiterMann
+\direction{klopfen an die Wand} Esklingt hohl, ja es klingt wirklich hohl.
+
+\Jan
+\direction{hinter dem Schalter, zur Schwester, die ihn zurückhalten will}
+
+Gehen Sie zum Teufel, Sie Leutnant.
+
+\direction{in diesem Augenblick wird die Türe aufgerissen und herein kommen der \theGeneraldirektor und \theAlexis. Beide fahren zuerst zurück}
+
+\Alexis
+Schwester, was ist das für eine Volksversammlung?
+
+\Generaldirektor
+Wir haben Sie doch ausdrücklich ersucht, für unbedingte Ruhe des Nachts zu sorgen.
+
+\Heilsarmeeschwester
+Verzeihung, liebe Herren,aber es ist nicht meine Schuld.
+
+\Alexis
+Wer sind die Leute hier? Flüchtlinge?
+
+\Heilsarmeeschwester
+\direction{auf die beiden Männer deutend} Nur diese beiden, lieber Herr.
+
+\Generaldirektor
+Und die andern?
+
+\Heilsarmeeschwester
+Ich weiß es nicht. Vorübergehende Spaziergänger.
+
+\Jan
+Wollen eben auch einmal ins Kino gehen.
+
+\Generaldirektor
+Hier gibt es weiß Gott keine Abendbelustigung.
+
+\Alexis
+Vorübergehende haben hier nichts zusuchen.
+
+\Luise
+Ja ist denn hier ein Gefangenenlager?
+
+\Alexis
+Sie haben keine Fragen zu stellen.
+
+\Gregor
+Komm, Luise, komm, wir wollen gehen.
+
+\Luise
+Und wenn die Leute da unten ersticken, wird man sie wohl zu sich einladen dürfen.
+
+\Generaldirektor
+Wie? Was reden Sie da? Was soll das heißen?
+
+\Luise
+Der Mann dort ist unser Gast. Er kommt mit uns.
+
+\Alexis
+Halt, das gibts nicht. Wie konnten Sie nur erlauben, Schwester
+
+\Heilsarmeeschwester
+Die guten Menschen warenvoll Erbarmen, als sie die beiden Männer heraufkommen sahen.
+
+\ErsterMann
+Und was mich betrifft, die Herren müssen entschuldigen. Ich halt es indem Gestank nicht aus.
+
+\ZweiterMann
+Und mich bringt man nicht mehrin diese Hölle.
+
+\Generaldirektor
+Aber das geht doch nicht, ihrgehört doch zum Lager, da kann man jetzt keine Ausnahme machen.
+
+\Alexis
+Es ist völlig unmöglich,
+
+\direction{in dem Augenblick tauchen sechs, acht Gestalten, alle eben aus dem Bett aufgestanden, hinten auf der Treppe auf}
+
+Also sehen Sie, da haben wir schon die Bescherung.
+
+\Generaldirektor
+\direction{auf die eben Erschienenen zutretend und sehr höflich} Ich bittetausendmal um Entschuldigung, falls wirSie stören. Wir kamen nur --- um die Ventilation zu untersuchen.
+
+\Heilsarmeeschwester
+\direction{mit ausgebreiteten Armenauf sie zutretend} Geliebte Brüder, vertraut doch auf uns. Die Herren sind nur gekommen, um euch Gutes zu erweisen, dennin Zeiten der Not da blüht erst die Nächstenhilfe.
+
+\Leute
+Wir können aber nicht schlafenEs ist zu stickig\ldots Das ganze Lager ist ja auf \ldots Wenn wir der Schwester nichtso fest versprochen hätten
+
+\Heilsarmeeschwester
+Seht ihr, ihr habt es mir versprochen. Und wollt ihr nun euer Wort nicht halten \ldots Ich aber komme zu euch\ldots{} ich will mit euch beten \ldots --- Wir wollensingen --- einen Choral --- kommt.
+
+\direction{die Leute lassen sich von ihr zurücktreiben, sie folgt ihnen die Treppe hinunter}
+
+\direction{die beiden Männer haben inzwischen \theJan, \theGregor und \theLuise zur Tür hingezogen.}
+
+\ErsterMann
+Na denn fix, verduften wir.
+
+\ZweiterMann
+Jetzt lasst uns nur nicht auchnoch im Stich.
+
+\Gregor
+\direction{zu \theJan} So komm doch schon. Waswillst du denn noch?
+
+\direction{\theErsterMann, \theZweiterMann, \theGregor, \theLuise und \theJan schlüpfen zur Tür hinaus}
+
+\Alexis
+\direction{merkt es im letzten Augenblick, will ihnen nach} Halt, halt, das geht nicht.
+
+\Generaldirektor
+\direction{hält ihn zurück} So lassen Sie doch. Sie können die Leute ja auch nicht anbinden.
+
+\Alexis
+Ich fürchte Unruhen, Aufstand und Gewalt mehr als jeden Nebel.
+
+\Generaldirektor
+Jetzt ist nicht Zeit, darübernachzudenken. Jetzt haben wir Wichtigereszu tun. Wo ist der Schlüssel? \direction{sperrt dieTür ab} Und die Tür muss abgesperrtbleiben. Wenn nur die Schwester nichtkommt.
+
+\Alexis
+Sie singt doch unten einen Choral. Hören Sie nicht? \direction{man hört auch wirklich nicht zu laut einen Choral}
+
+\Generaldirektor
+Dass der Oberst nicht hierist, habe ich erwartet. Es nützt nichts, ihn zu bestellen. Ich glaube, wir müssen auf ihn verzichten.
+
+\Alexis
+Und dabei ist doch eben hier alles sein Werk. Es ist und bleibt mir unverständlich---
+
+\Generaldirektor
+Es ist nicht Zeit, sich jetztüber ihn den Kopf zu zerbrechen. Rasch, rasch. Die Schwester kann jeden Augenblick kommen.
+
+\Alexis
+Solange sie singt, sind wir ungestört. Und auch nachher hält sie die Leute in Zucht. Wenn der Oberst mit uns die Pumpeuntersuchen wollte.
+
+\Generaldirektor
+Sie sind ein Narr, Alexis. Wie können Sie immer noch auf ihn warten. Gott weiß, an welchem Problem er brütet, für ihn existiert ja die Wirklichkeit nicht. Er ist der große Theoretiker. Sie aber, Alexis, sind ein Mann der Tat. Zeigen Sie sich als sein Stellvertreter.
+
+\Alexis
+Soll ich wirklich ohne sein Beisein ---
+
+\Generaldirektor
+Mir scheint gar, Sie fürchten sich.
+
+\Alexis
+Herr Generaldirektor
+
+\Generaldirektor
+Nehmen Sie sich zusammen, Herr Ingenieur. Wir müssen die Pumpe jetzt ausprobieren. Wenn der Wind sich weiter nach Süden dreht ---
+
+\Alexis
+Nein, nein, nein.
+
+\Generaldirektor
+Wo ist der geheime Hebel?
+
+\Alexis
+\direction{geht zaudernd auf den Billetschalterzu} Hier. Halt. Die Leute hören zu singen auf.
+
+\Generaldirektor
+\direction{lauschend} Sie beten jetzt. \direction{man hört fernes Gemurmel} Rasch! \direction{\theAlexis drückt auf einen geheimen Knopf. Die Wand öffnet sich, eine riesengroße Luftpumpenanlage wird sichtbar. Der \theGeneraldirektor stellt sich beobachtend vor die Treppe} Untersuchen Sie rasch, ob alles in Ordnung ist.
+
+\Alexis
+\direction{prüft einige Griffe} Es klappt.
+
+\Generaldirektor
+Dann los!
+
+\Alexis
+Wollen wir wirklich?
+
+\Generaldirektor
+Um Gotteswillen, versuchen Sie es doch. Sofort, sofort, man singt noch einen Choral. \direction{man hört wieder gedämpft einen Choral. Alexis manipuliert an der Pumpe herum. Zischen. Ganz kurz. Dann springt \theAlexis wieder an den Billetschalter zurück und schließt durch den Hebel die Wand}
+
+\Generaldirektor
+Ausgezeichnet, es wirkt wie ein kühler Wind. Warum nicht mehr?
+
+\Alexis
+Die Leute dürfen nicht Verdacht schöpfen.
+
+\Generaldirektor
+Wollen Sie sie lieber unten verschmachten lassen?
+
+\Alexis
+Es ist unabsehbar, was geschieht, wonnman nur ahnt, worauf wir gerüstet sind.Wir dürfen uns im Frieden doch nicht wieim Kriegsfall benehmen.
+
+\Generaldirektor
+Ich glaube, man würde dankbar sein für etwas frische Luft.
+
+\Alexis
+Man würde glauben, dass wir Schuldtragen am Nebel. Was jetzt als Unglück scheint und als Schicksalsschlag, erschiene dann als ---
+
+\Generaldirektor
+Als Verbrechen.
+
+\Alexis
+Herr General direktor!
+
+\Generaldirektor
+Fürchten wir uns nicht vor Worten, Alexis. Um so mehr als wir unschuldig sind.
+
+\Alexis
+Das sind wir bei Gott.
+
+\Generaldirektor
+\direction{Auf die Wand zeigend} Wieviel Sauerstoff ist dort drin?
+
+\Alexis
+Für vierzehn bis sechszehn Tage. \direction{in diesem Augenblick erscheint die Heilsarmeeschwester wieder. Sie ist ganz in Ekstase}
+
+\Heilsarmeeschwester
+Gelobt sei der Herr! Halleluja, er sei gepriesen. Er hat ein Wunder getan. Beten Sie mit mir. Danken Sie ihm mit mir.
+
+\Generaldirektor
+Was ist denn los, was ist geschehen, Schwester?
+
+\Heilsarmeeschwester
+Als ich unten mit der Schar der Verzweifelten auf den Knieenlag, als wir beteten, und als wir sangen,da --- es war wie ein kühler Wind. Die armen Leute atmeten auf.
+
+\Generaldirektor
+Schon gut, Schwester.
+
+\Alexis
+Ist jetzt Ruhe unten?
+
+\Heilsarmeeschwester
+Ruhe und Gottvertrauen.
+
+\Alexis
+Sie dürfen aber nicht mehr jeden zu Tür hereinlassen. Weisen Sie alle Neugierigen ab. Hier ist doch schließlich kein Theater.
+
+\Generaldirektor
+Wissen Sie überhaupt, wer die Menschen waren?
+
+\Heilsarmeeschwester
+Nein, ich weiß es nicht,---Aber es waren gute und ehrliche Leute. Nur der eine junge Mann war so sonderbar und so übermütig. Vielleicht betrunken. Er klopfte immer zu auf die Wand.
+
+\Alexis
+Wie, was? An die Wand?
+
+\Heilsarmeeschwester
+Er sagte, es klänge hohl.
+
+\Alexis
+Schwester, Schwester, um Himmel swillen! Und Sie wissen nicht einmal seinen Namen. \direction{dringt auf sie ein}
+
+\Heilsarmeeschwester
+\direction{zurück weichend} Ich --- ich weiss doch nichts.
+
+\Alexis
+Und zwei Mann vom Lager sind mitgekommen. Nicht auszudenken, was das für ein Gerede geben wird. Vermutungen tauchen auf, Verdächtigungen --- Herr Generaldirektor, wir brauchen Militär.
+
+\Generaldirektor
+Was fällt Ihnen ein.
+
+\Alexis
+\direction{packt ihn am Ärmel} Kommen Sie sofort. Die Leute müssen verhaftet werden und mit ihnen dieser Doktor Jonas, derüberall nach Gasmasken sucht. Begründungeinerlei.
+
+\Generaldirektor
+Sie sind verrückt, Alexis. Wie stellen Sie sich das eigentlich vor?
+
+\Alexis
+Die Heilsarmee ist zu schwach. Ich habe es gleich gesagt. Wir brauchen Militär, echtes Militär.
+
+\Heilsarmeeschwester
+Die armen Leute sind doch ohnehin so geduldig.
+
+\Alexis
+\direction{zieht den Generaldirektor weiter am Ärmel} Rasch, rasch, im Wagen will ich alles weiter erklären. Schwester, Sielassen keinen Menschen mehr herein.
+
+\direction{es klopft sehr heftig an die Tür}
+
+\Stimme
+Aufmachen! Aufmachen! Zum Teufelnoch mal! Sofort aufmachen!
+
+\Alexis
+Wer ist da?
+
+\Stimme
+Machen Sie jedenfalls sofort auf. \direction{wütendes Klopfen} Aufmachen! Aufmachen!
+
+\Alexis
+Wer ist draussen?
+
+\Stimme
+\direction{Durch das Klopfen hindurch} Der Generaldirektor --- Nebel --- Scharen --- Auto ---Aufmachen!
+
+\direction{\theAlexis sperrt die Tür auf, hereinstürzt \theSalwin}
+
+\Salwin
+Herr Generaldirektor, ich wusste es ja,ich sah ja draußen Ihren Wagen. Ich komme eben von einer Rekognoszierungsfahrt. Aufdem Motorrad \direction{kann nicht weiter vor Atemlosigkeit und Aufregung}
+
+\Generaldirektor
+Und, und? Was ist?
+
+\Salwin
+Der Wind --- der Nebel --- der Wind hat sich gewendet. Die Leute fliehen in Scharen --- der Wind hat sich gewendet --- nach Süden.
+
+\Alexis
+Wo flieht man, wo?
+
+\Salwin
+Sagen Sie mal, gibt es denn hier kein Telefon?
+
+\Generaldirektor
+Zum Teufel, woher kommen Sie denn?
+
+\Salwin
+Ich war allein, auf dem Motorrad ungefähr eine Stunde südlich von Dybern.
+
+\Heilsarmeeschwester
+\direction{ist in einer Ecke niedergekniet und betet}
+
+\Generaldirektor
+Eine Stunde von Dybern! Es istnicht abzusehen. Kommen Sie sofort Alexis. Wir müssen auf der Stelle --- \direction{ab mit Alexis}
+
+\Salwin
+Beten Sie nicht, so beten Sie dochnicht Schwester. Sagen Sie lieber, wo ist hier ein Telefon?
+
+\Heilsarmeeschwester
+Unten in der Kanzlei. Dort können Sie jetzt nicht hin. \direction{betet weiter}
+
+\Salwin
+Ja warum denn nicht?
+
+\Heilsarmeeschwester
+\direction{immer noch zwischen Beten} Dort schlafen ein Dutzend Leute.
+
+\Salwin
+\direction{will hinunter gehen} Die werden ohnehin bald aufwachen.
+
+\Heilsarmeeschwester
+\direction{hält ihn zurück} Nein, das dürfen Sie nicht, man hat mir verbotenmein Gott, wer sind Sie denn?
+
+\Salwin
+Salwin, erster Redakteur der Pressekorrespondenz.
+
+\Heilsarmeeschwester
+Sie können jetzt unmöglich hinunter. Ich beschwöre Sie im Namen Gottes und unseres Erlösers: bleiben Sie hier! Es war mir ohnehin kaum mehr möglich, die Leute in Ruhe zu halten. Erst ein Wunder hat mir geholfen.
+
+\Salwin
+Interessant. Wie war denn dieses Wunder?
+
+\Heilsarmeeschwester
+Während sie sangen und beteten, kam ein kühlender, sanfter Wind.
+
+\Salwin
+Interessant. Und Sie sind allein hier, Schwester --- wie ist Ihr Name Schwester?
+
+\Heilsarmeeschwester
+Mein Name bleibt ungenannt.
+
+\Salwin
+Und Sie haben allein hier eine ganze Horde zu bewachen?
+
+\Heilsarmeeschwester
+Die armen Leute sind keineHorde.
+
+\Salwin
+Aber sie versuchen aus zubrechen.
+
+\Heilsarmeeschwester
+Sie sind eben auch nur irrend und schwach.
+
+\Salwin
+Und wenn sie erfahren, dass der Nebel näher rückt?
+
+\Heilsarmeeschwester
+Dann gebe Gott mir die Kraft, sie zu stützen.
+
+\Salwin
+Sie sind sehr mutig. Aber ich muss jetztgehen, Schwester, wollen Sie mir nicht doch Ihren Namen sagen?
+
+\Heilsarmeeschwester
+\direction{schüttelt den Kopf}
+
+\Salwin
+Na, denn nicht. Aber noch eins, Schwester \direction{schon in der Tür} Können Sie mir eines noch sagen: Sind Sie ganz sicher, dass dieser sonderbare und rätselhafte Nebel wirklich von Gott kommt?
+
+\Heilsarmeeschwester
+Es kommt doch alles von Gott.
+
+\Salwin
+Oder vom Teufel. \direction{da sie entsetzt zurückweicht} Entschuldigen Sie, ich habe es nicht ganz so gemeint. Beten Sie nurungestört weiter. \direction{ab}
+
+\Heilsarmeeschwester
+\direction{sinkt betend in die Knie}
+
+\end{play}
+
+% ---------
+
+
 \scene{Hungrige Mäuler}
 \scene{Nachbohren}
 
