@@ -70,11 +70,34 @@ def clean_text(text: str) -> str:
     text = text.replace('Katerine', 'Katherine')
     text = text.replace('BARAARA', 'BARBARA')
     text = text.replace('Baraara', 'Barbara')
-    text = re.sub(r'(?<!GENERAL ?)DIREKTOR', r'GENERALDIREKTOR', text)
+    text = re.sub(r'(?<!GENERAL)DIREKTOR', r'GENERALDIREKTOR', text)
     text = re.sub(r'^\W* ?DIREKTOR', r'GENERALDIREKTOR', text)
     text = re.sub(r'[^T]HOMSEN', r'THOMSEN', text)
     text = text.replace('Homsen', 'Thomsen')
     text = re.sub(r'[^A]LEXIS', r'ALEXIS', text)
+    text = text.replace('DIE KINDER:', 'KINDER:')
+    text = text.replace('Die KINDER:', 'KINDER:')
+    text = text.replace("Ein grosser Junge:", "JUNGE1:")
+    text = text.replace("Der erste grosse Junge:", "JUNGE1:")
+    text = text.replace("Erster grosser Junge:", "JUNGE1:")
+    text = text.replace("Ein ganz kleiner Junge:", "JUNGE2:")
+    text = text.replace("Ein kleiner Junge:", "JUNGE3:")
+    text = text.replace("Der kleine Junge:", "JUNGE3:")
+    text = text.replace("Zweiter grosser Junge: ", "JUNGE4:")
+    text = text.replace("Ein zweiter grosser Junge:", "JUNGE4:")
+    text = text.replace("Ein kleines Mädchen:", "MAEDCHEN1:")
+    text = text.replace("Das erste kleine Mädchen:", "MAEDCHEN1:")
+    text = text.replace("Das kleine Mädchen:", "MAEDCHJEN1:")
+    text = text.replace("Ein zweites kleines Mädchen:" , "MAEDCHEN2:")
+    text = text.replace("Zweites kleines Mädchen:", "MEADCHEN2:")
+    text = text.replace("Ein grösseres Mädchen:", "MAEDCHEN3:")
+    text = text.replace("Ein grosses Mädchen:" , "MAEDCHEN3:")
+    text = text.replace("Das erste grosse Mädchen:", "MAEDCHEN3:")
+    text = text.replace("Erstes grosses Mädchen:", "MAEDCHEN3:")
+    text = text.replace("Das erste grosse Mädchen::", "MAEDCHEN3:")
+    text = text.replace("Zweites grosses Mädchen:" , "MAEDCHEN4:")
+    text = text.replace("Das zweite grosse Mädchen:", "MAEDCHEN4:")
+    text = text.replace("Zweites grosses Mädchen:", "MAEDCHEN4:")
     return text
 
 
@@ -83,13 +106,16 @@ def texify(text: str) -> str:
     # while modifying, the already generated matches are becoming
     # outdated. first title-case then texify later
     # TODO loop with start and do all transformations in one place
-    for match in re.finditer('([A-Z ]{3,}):', text):
+    for match in re.finditer('([A-Z0-9 ]{3,}):', text):
         name = match.group(1)
         start, end = match.span(1)
         text = text[:start] + name.title() + text[end:]
-    text = re.sub(r'((([A-Z][a-z]+) ?)+): ?', r'\n\\\1\n', text)
+    text = re.sub(r'((([A-Z][a-z0-9]+) ?)+): ?', r'\n\\\1\n', text)
     text = text.replace(r'\Erster Mann', r'\ErsterMann')
     text = text.replace(r'\Zweiter Mann', r'\ZweiterMann')
+    text = text.replace(r'\Die Kinder', r'\Kinder')
+    text = re.sub(r'\\Maedchen([0-9]+)', r'\n\\Maedchen{\1}', text)
+    text = re.sub(r'\\Junge([0-9]+)', r'\n\\Junge{\1}', text)
 
     text = text.replace(r'\Die Beiden Maenner',
                         ('\\ErsterMann \\direction{gemeinsam}\n'

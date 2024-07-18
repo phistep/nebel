@@ -168,7 +168,7 @@
 \newcommand{\theThomsen}{\thecharacter{Thomsen}}
 \newcommand{\theJonas}{\thecharacter{Jonas}}
 \newcommand{\theSalwin}{\thecharacter{Salwin}}
-\newcommand{\theOberst}{\thecharacter{Oberst Brix}}
+\newcommand{\theBrix}{\thecharacter{Oberst Brix}}
 \newcommand{\theMelchior}{\thecharacter{Melchior}}
 \newcommand{\theHeilsarmeeschwester}{\thecharacter{Heilsarmeeschwester}}
 \newcommand{\theErsterMann}{\thecharacter{Erster~Mann}}
@@ -195,7 +195,7 @@
 \newcommand{\Thomsen}{\character{\theThomsen}}
 \newcommand{\Jonas}{\character{\theJonas}}
 \newcommand{\Salwin}{\character{\theSalwin}}
-\newcommand{\Oberst}{\character{\theOberst}}
+\newcommand{\Brix}{\character{\theBrix}}
 \newcommand{\Melchior}{\character{\theMelchior}}
 \newcommand{\Heilsarmeeschwester}{\character{Schwester}}
 \newcommand{\ErsterMann}{\character{1. Mann}}
@@ -206,6 +206,8 @@
 \newcommand{\Leute}{\character{\theLeute}}
 \newcommand{\Soldaten}{\character{\theSoldaten}}
 \newcommand{\Stimme}{\character{\emph{Stimme}}}
+\newcommand{\Junge}[1]{\character{Junge #1}}
+\newcommand{\Maedchen}[1]{\character{Mädchen #1}}
 
 % cover
 \usepackage{pdfpages}
@@ -224,7 +226,8 @@
 	\vspace{\baselineskip}
 	\raggedright
     \theBarbara, \quad schwanger\\
-    \theJosef, \quad ihr Mann\\
+	\theJosef, \quad ihr Mann,%
+		\quad  (\ref{scene:I}, \ref{scene:IV})\\
     \theKathrine, \quad blind\\
     \theGregor\\
     \theJan\\
@@ -237,14 +240,15 @@
     Doktor \theThomsen, \quad Arzt\\
     Doktor \theJonas, \quad Arzt\\
     \theSalwin, \quad Pressekorrespondent\\
-    \theOberst\\
+    \theBrix, \quad Militär, Chemiker\\
     Jakob \theMelchior, \quad Militär\\
     \theHeilsarmeeschwester\\
     \theErsterMann\\
     \theZweiterMann\\
     \theSergeant\\
     \theDiener\\
-    \theKinder,  \theLeute und \theSoldaten.
+    \theKinder\\
+	\theLeute und \theSoldaten.
 }
 \lowertitleback{%
 	\footnotesize
@@ -274,6 +278,7 @@
 
 \act{Erster Akt}
 \scene{Der Nebel}
+\label{scene:I}
 \characterlist{\theBarbara, \theJosef, \theKathrine, \theGregor, \theJan, \theAndreas, \theThomsen, \theAgnes}
 \setting{Eine einfache, saubere Wirtsstube. Frühe Nachmittagsdämmerung, schläfriges Licht. Auf der Fensterbank sitzt \theJosef mit einer Zeitung, an den Kachelofen gelennt, hockt die alte \theKathrine. \theJosef ist ein behäbiger, etwas dicker Mensch. \theKathrine ist blind. Sie starrt immer vor sich hin, als ob sie etwas sehen würde.}
 
@@ -869,6 +874,7 @@ Ich verbrenne.
 
 
 \scene{Kriesensitzung}
+\label{scene:II}
 \characterlist{\theGeneraldirektor, \theClarisse, \theAlexis, \theThomsen, \theJonas, \theDiener, \theSalwin}
 \marginnote{Ledersessel}
 \setting{Ein elegantes, diskretes Herrenzimmer, Bücherregale, Tisch mit Klubfauteuils. Schreibtisch, Telephon. Es ist Abend, An dem Schreibtisch, der mit Zeitungen übersät ist, sitzt der \theGeneraldirektor, ein angenehmer, etwas dicker Mensch, mit gutmütigem Gesicht. Er liest in einer Zeitung. Wie der Vorhang aufgeht, tritt eben seine Frau, \theClarisse, in die Tür hinter seinem Rücken. Sie ist hübsch und gepflegt.}
@@ -1025,7 +1031,7 @@ Doktor Jonas --- Ingenieur Alexis \direction{auf \theThomsen zeigend} Die Herren
 
 Bitte, \direction{läutet dem \theDiener}
 
-Oberst Brix ist leider nicht telefonisch erreichbar. Es gehört zu seinen Schrullen.
+iberst Brix ist leider nicht telefonisch erreichbar. Es gehört zu seinen Schrullen.
 
 \direction{zum Diener} Whisky! ---
 
@@ -1317,6 +1323,7 @@ Gasmasken? Ich --- ich habe keine Gasmasken.
 
 
 \scene{Im Flüchtlingslager}
+\label{scene:III}
 \characterlist{\theHeilsarmeeschwester, \theJan, \theLuise, \theGregor, \theErsterMann, \theZweiterMann, \theGeneraldirektor, \theAlexis, \emph{Gestalten}}
 \setting{Vorraum des Kinos. Photos an den Wänden. Im Hintergrund eine breite Treppe, die nach abwärts führt. Links ein großes, leeres Buffet, rechts eine Kasse, in der eine junge \theHeilsarmeeschwester sitzt, Herein kommen \theJan, \theLuise und \theGregor. \theLuise und \theGregor bleiben etwas betroffen in der Türe stehen, \theJan geht mitstark posierter Unbefangenheit auf die Kassezu.}
 \begin{play}
@@ -1616,7 +1623,7 @@ Wir können aber nicht schlafenEs ist zu stickig\ldots Das ganze Lager ist ja au
 \Heilsarmeeschwester
 Seht ihr, ihr habt es mir versprochen. Und wollt ihr nun euer Wort nicht halten \ldots Ich aber komme zu euch\ldots{} ich will mit euch beten \ldots --- Wir wollensingen --- einen Choral --- kommt.
 
-\direction{die Leute lassen sich von ihr zurücktreiben, sie folgt ihnen die Treppe hinunter}
+\direction{die \theLeute lassen sich von ihr zurücktreiben, sie folgt ihnen die Treppe hinunter}
 
 \direction{die beiden Männer haben inzwischen \theJan, \theGregor und \theLuise zur Tür hingezogen.}
 
@@ -1917,10 +1924,684 @@ Oder vom Teufel. \direction{da sie entsetzt zurückweicht} Entschuldigen Sie, ic
 
 
 \scene{Hungrige Mäuler}
+\label{scene:IV}
+\characterlist{
+	\theKinder,
+	\theJosef,
+	\theKathrine,
+	\theBrix,
+	\theMelchior,
+	\theBarbara,
+	\theAndreas,
+	\theGeneraldirektor,
+	\theAlexis,
+	\theSoldaten
+}
+\setting{Wirtsstube wie im ersten Bild. Hinten auf der Ofenbank die alte \theKathrine. Vor ihr spielen vier kleine \theKinder Haschen. Gleich darauf kommt \theJosef auch schon zur Tür herein und treibt einen Haufen \theKinder, ungefähr sieben oder acht, vor sich her. Die \theKinder, Knaben und Mädchen sind fünf bis dreizehn Jahre alt. Etwas trübes, dämmeriges Licht.}
+
+\begin{play}
+
+\Josef
+Herein mit euch! Und dass mir keiner von der Bande sich noch vor die Tür wagt.
+
+\Junge{1}
+\direction{groß}
+Aber was sollen wir hier denn tun?
+
+\Maedchen{1}
+\direction{klein, mit sehr heller Stimme} Es ist so langweilig.
+
+\Maedchen{2}
+\direction{größer}
+Wir können doch nicht den ganzen Tag auf der Ofenbank hocken.
+
+\Josef
+Es sind nun mal keine vergnüglichen Zeiten.
+
+\Junge{2}
+\direction{ganz klein, weinerlich} Ich will  zu meiner Mutter.
+
+\Josef
+\direction{nimmt ihn auf den Schoss} Na wart nur,das wird nicht mehr lange dauern.
+
+\Junge{1}
+Ja, das heißt es jetzt alle Tage und dann darf man nichtmal mehr vor die Tür.
+
+\Josef
+Jetzt schweigt schon still. In einer halben Stunde gibt's was zu essen. Und einstweilen kann Mutter Kathrine euch eine Geschichte erzählen. \direction{fängt an seine Pfeife zu putzen}
+
+\Kinder
+\direction{durcheinander} Fein, fein Kathrine soll uns was erzählen--- nicht wahr, Kathrine, du erzählst uns was.
+
+\Kathrine
+Ich weiß nicht viel Lustiges zu erzählen.
+
+\Maedchen{1}
+\direction{groß}
+Dann erzähl eben was Trauriges.
+
+\Maedchen{2}
+\direction{groß}
+Ja, ja, das ist uns gerade recht. So was zum weinen.
+
+\Junge{3}
+Aber sieh zu, dass auch ordentlich was passiert.
+
+\Kathrine
+Ich weiß wirklich nichts zu erzählen, Kinder.
+
+\Kinder
+Oh bitte, bitte!
+
+\Maedchen{2}
+Vom Weihnachtsmann.
+
+\Junge{3}
+Ach was, den gibt's doch heuer nicht.
+
+\Maedchen{3}
+Von was denn sonst?
+
+\Maedchen{1}
+\direction{mit der auffallend hellen Stimme} Von Feen und Elfen.
+
+\Junge{1}
+Die gibts doch erstrecht nicht. Die sind längst schon kaputtgegangen im Wald.
+
+\Maedchen{1}
+Können die auch den Nebel nicht vertragen?
+
+\Junge{3}
+Ich glaube überhaupt nicht an Feen und Elfen.
+
+\Kinder
+Also was anderes, Kathrine.
+
+\Maedchen{1}
+Weißt du was. Erzähl' uns vom Tod.
+
+\Junge{1}
+Bist wohl verrückt.
+
+\Maedchen{3}
+Was hat die für Ideen!
+
+\Maedchen{1}
+Aber den Tod, den gibt's. Der ist wirklich im Wald.
+
+\Junge{3}
+Mein Vater hat gesagt, es gibt keinen Tod.
+
+\Maedchen{4}
+Natürlich gibt es keinen Tod, man stirbt einfach.
+
+\Maedchen{1}
+Aber warum denn gerade am Weidenweg?
+
+\Junge{1}
+Weil dort der dickste Nebel ist, dummes Ding.
+
+\Maedchen{1}
+Ich bin gar kein dummes Ding. Und wenn man im Nebel stirbt, dann ist dort der Tod.
+
+\Josef
+\direction{schlägt mit der Hand auf den Tisch} Jetzt hört schon einmal auf mit dem Quatsch.
+
+\Maedchen{3}
+Zu meiner Großmutter ist aber doch der Tod gekommen. Er war lang und hager und aus lauter Knochen, mit einer Sense.
+
+\Junge{1}
+Red keinen Unsinn.
+
+\Junge{4}
+Das ist doch nur so ein Gespenst, das gibt es doch nicht.
+
+\Maedchen{4}
+Nicht wahr, Kathrine, das gibt es nicht?
+
+\Junge{1}
+So sag doch Kathrine. Zweites kleines Mädchen. Nicht wahr, Kathrine, es gibt einen Tod.
+
+\Maedchen{3}
+Geht er wirklich herum und klappert mit allen Knochen?
+
+\Maedchen{2}
+Und hat er wirklich einen Mund, der immer nur lacht?
+
+\Maedchen{3}
+Und die Augen wie Löcher tief drinnen im Kopf?
+
+\Josef
+\direction{indem er wieder auf den Tisch schlägt} Wollt Ihr nicht endlich ein Ende machen!
+
+\direction{Der kleine Junge, der auf seinen Schoß gesessen ist, springt erschrocken herunter und läuft zu den \theKinder{}n. Einen Augenblick Stille}
+
+\Maedchen{1}
+So sag doch Kathrine.
+
+\Kathrine
+Ihr seid wirklich ganz, ganz dumme Kinder. Und überhaupt soll man vom Tod nicht sprechen. Habt ihr gehört, niemals. Weil er sonst wirklich kommt.
+
+\Maedchen{3}
+Also, da seht ihr, es gibt ihn doch!
+
+\Kathrine
+Schweig still, Mädel, was weißt denn du. So einen Tod wie du meinst, den gibts schon lange nicht. Der war einmal, als die Menschen noch besser waren, als sie halbwegs Frieden hielten auf Erden. Da hatte auch der Tod noch ein Gesicht. Wenn auch kein schönes, aber doch wie ein Mensch, ein gestorbener Mensch.
+
+\Junge{1}
+Und jetzt?
+
+\Maedchen{4}
+Wie schaut er jetzt denn aus?
+
+\Kathrine
+\direction{vorgebeugt und heiser} Jetzt hat der Tod einen Rüssel. Und glatte Glotzaugen rechts und links. Jetzt hat der Tod gar kein Gesicht, Sieht aus wie ein böses und dummes Tier.
+
+\direction{Die Tür wird nach kurzen Klopfen aufgestoßen und herein kommt ein großer schlanker Mann in feldgrauem Mantel und mit Gasmaske vor dem Gesicht von \theBrix. Ihm folgt ein kleiner dicker Mann mit plattem und gemeinem Gesicht, ebenfalls feldgrau, aber mit der Gasmaske in der Hand. Die Kinder stürzen kreischend vor Angst zur Tür hinaus, die in die Küche führt. \theJosef springt auf, lehnt entsetzt an der Wand}
+
+\Melchior
+Guten Tag.
+
+\Brix
+Guten Tag.
+
+\Kathrine
+Herr Jesus, steh uns bei.
+
+\Josef
+\direction{etwas mühsam} Guten Tag.
+
+\Brix
+Der Generaldirektor schon hier?
+
+\Melchior
+Könnt Ihr denn keine Antwort geben?
+
+\Brix
+Die Sauerstoffpumpe schon angekommen?---
+
+\Melchior
+\direction{auf \theJosef zutretend} Mensch, dir hat es wohl die Red' verschlagen.
+
+\Brix
+Genügend Gasmasken im Haus?
+
+\Josef
+Ich --- ich weiß --- von nichts.
+
+\Melchior
+Was starrst du denn so? Der Herr ist kein Gespenst.
+
+\Kathrine
+Vater unser, der du bist in dem Himmel --- es riecht nach Krieg.
+
+\Melchior
+Was schwatzt die Alte dort? Die wird noch mehr Gasmasken zu sehen bekommen.
+
+\Kathrine
+Ich werde im Leben keine Gasmaskenmehr zu sehen bekommen. Gott ist mir gnädig.
+
+\Brix
+Was soll das heißen?
+
+\Kathrine
+Ich brauche nichts mehr zu sehen. Gott sei gepriesen.
+
+\Melchior
+Das Weib ist närrisch.
+
+\Brix
+Was ist denn mit ihr? Was starrt sie mich so an? \direction{weicht einen Schritt zurück}
+
+\Josef
+Herr, sie ist blind.
+
+\Brix
+Melchior, wir haben keine Zeit hier zuwarten. Rasch, komm. Leg unseren Plan auf den Tisch, der Generaldirektor soll ihn hier finden.
+
+\direction{Melchior legt ein Stück Papier auf den Tisch}
+
+Hier ist alles verzeichnet, hier steht genau, wie der Nebel weiterrückt. Ihr bekommt Sauerstoff und Gasmasken, die Kinder bringt in den Keller. Alles Übrige werdet ihr noch erfahren. Melchior, setz deine Gasmaske auf.
+
+\direction{Da \theMelchior zögert} Was hast du? Gehorche! Wir gehen. Kehrt euch!
+
+\Melchior
+\direction{stülpt die Gasmaske auf, sehr militärisch} Zu Befehl, Herr Oberst.
+
+\direction{beide ab}
+
+\Josef
+Verflucht nochmal, das ist mir jetzt in die Glieder gefahren. Der Lange war ja das reine Gespenst. Sauerstoff und Gasmasken.
+
+\Kathrine
+Man soll nie vom Tod sprechen, sonst ist er dann plötzlich da.
+
+\Josef
+Ach halt die Schnauze, alte Hexe. Das war ein Offizier und sein Soldat. Aber was ist mit Barbara. Wenn nur Barbara ---
+
+\direction{Barbara kommt mit einem Sack Kartoffeln herein}
+
+\Barbara
+Was war denn hier, was ist denn geschehen? Die Kinder sind wie außer Rand und Band. Ich war eben im Keller, da kam ein Mädchen heruntergestürzt, aber es war nichts aus ihr herauszukriegen.
+
+\Josef
+Es kommen böse Zeiten, Barbara. Der Nebel rückt näher. Man hat uns gewarnt. Sauerstoff und Gasmasken---
+
+\direction{Kathrine ist aufgestanden und humpelt auf die Tür zu}
+
+\Barbara
+Wo willst du denn hin, Kathrine?
+
+\Josef
+Du hörst doch, dass der Nebel näherrückt.
+
+\Barbara
+Geh nicht hinaus.
+
+\Kathrine
+Mir kann kein Nebel mehr was anhaben.Ich will nach Haus, ich mag euren Sauerstoff nicht.
+
+\Barbara
+Du bist ja wahnsinnig. Wirst doch jetzt nicht fortgehen wollen. \direction{will sie zurückhalten}
+
+\Kathrine
+Lass los, ich mag nicht. Mich soll keiner mehr retten. Erst haben sie mir mein Mädelchen verdursten lassen, dann haben sie mir meinen Buben vergiftet. Mir aber wollen sie noch eine Gasmaske aufstülpen. Ich tu nimmer mit. Lass los. \direction{ab}
+
+\Barbara
+\direction{starrt ihr nach} Vielleicht hat sie recht.
+
+\Josef
+Sprich nicht so, Barbara, wir müssen jetzt handeln.
+
+\Barbara
+Was redest du von Handeln. Hier können wir uns höchstens noch wehren.
+
+\direction{schüttelt die Kartoffeln in einen Eimer und setzt sich hin, um sie zu schälen}
+
+\Josef
+Es gilt nicht uns allein, Barbara. Wir haben das Haus voll Kinder. Fremde Kinder, das ist eine große Verantwortung.
+
+\Barbara
+Komm, nimm ein Messer und hilf mir Kartoffel schälen.
+
+\Josef
+Ich kann jetzt nicht Kartoffel schälen. \direction{rennt aufgeregt hin und her} Jeden Augenblick soll der Generaldirektor kommen. Man verspricht uns eine Sauerstoffpumpe und Gasmasken.
+
+\Barbara
+\direction{sieht auf} Gasmasken? Ja für wen denn Gasmasken?
+
+\Josef
+Es könnte doch sein, weißt du Barbara \direction{hantiert nervös an einem Fenster herum} dass der Nebel auch in die Stuben dringt, durch die Türritzen und den Fensterspalt,und dann ---
+
+\Barbara
+Und dann?
+
+\Josef
+Dann brauchen wir die Gasmasken auch. Dass du immer noch Kartoffel schälen kannst, Barbara.
+
+\Barbara
+Die Kinder müssen doch zu essen haben. Sag mal, bekommen die Kinder vielleicht auch solche Gasmasken?
+
+\Josef
+Ich denke schon.
+
+\Barbara
+\direction{hört auf zu schälen} Gibt es denn so kleine Gasmasken, so ganz kleine auch, ganz winzig kleine.
+
+\Josef
+Es wird wohl große und kleine geben. Aber zuerst werden wir die Kinder einmal in den Keller hinunterbringen. Du hast recht, sie müssen zu essen bekommen.
+
+\direction{setzt sich neben sie und beginnt ebenfalls Kartoffeln zu schälen}
+
+Möglichst bald. Hörst du sie in der Dachkammer oben. Das tobt und lärmt. Wir wollen gut sein gegen die armen Würmer. Stelle dir vor, wenn einmal unser eigenes
+
+\Barbara
+\direction{sehr schroff} Schweig still.
+
+\Josef
+Nun man kann nicht wissen. Gott wird es uns sicher vergelten. Und wenn einmal unser eigenes
+
+\Barbara
+\direction{rasend} so schweig doch schon, ich will das nicht hören.
+
+\Josef
+Aber Barbara
+
+\Barbara
+\direction{packt \theJosef{}s Arm} Unser eigenes Kind soll auf einer Wiese spielen, in einer wunderbaren, klaren, leuchtenden Luft, Josef, wir wandern aus in ein Land, wo es keinen solchen Nebel gibt, wo es keinen solchen Nebel geben kann. Josef, ich will hier kein Kind aufziehen. Nicht wahr, Josef, wir wandern aus. Auf eine Insel, mitten im Meer. Es muss doch noch einen Ort geben auf dieser Erde, wo solch ein Nebel nicht möglich ist.
+
+\Josef
+Aber Barbara, um Gotteswillen!
+
+\Barbara
+\direction{plötzlich zusammensinkend} Josef,Josef, ich fürcht' mich so. Mein Kind soll nicht in einem Keller zur Welt kommen. Man darf ihm keine Gasmaske auf das Köpfchen ---
+
+\Josef
+Barbara, es ist eine harte Zeit, Du wirst doch jetzt nicht den Mut verlieren, du warst ja so tapfer die letzten Tage. Schau, der Nebel ist wie eine Krankheit. Gott hat sie uns in das Land geschickt, aber auch dieser Nebel wird vergehen, jede Krankheit hört einmal auf zu wüten. Es hilft nichts, wenn man dem Unglück trotzt, das Schicksal ist ja doch stärker als wir.
+
+\Maedchen{1}
+\direction{mit der besonders hellen Stimme steckt den Kopf zur Tür herein} Ist der Tod noch da?
+
+\marginnote{\emph{unartiges Kind}.\par(läufiges Mutterschwein)}
+\Josef
+Willst du wohl, du kleine Range.
+
+\Maedchen{1}
+\direction{kommt etwas näher} Gibt es bald was zu essen?
+
+\Barbara
+Sehr bald, mein Kind. Ruf doch einmal die andern in die Küche hinunter. Sie sollen Ordnung machen und mir helfen \direction{greift nach dem Messer und schält weiter Kartoffeln} Rasch Josef, die Kinder sollen nicht hungern.
+
+\direction{\theJosef nimmt sein Messer, das kleine Mädchen ab}
+
+\Josef
+Hast recht Barbara, das ist jetzt das wichtigste. Kocht das Wasser schon? So mach doch kein so finsteres Gesicht, immer Kopf hoch, du warst doch sonst keine von denen, die leicht verzagen. Musst an unser Kleines denken Barbara. \direction{\theBarbara zuckt zusammen} Ja, Barbara, musst daran denken, was für so ein Kind gut ist ungesund. Du Barbara, ich hab dich schon lang nicht singen gehört.
+
+\Barbara \direction{nimmt den Trog mit den geschälten Kartoffeln und trägt ihn in die Küche. Die Türe bleibt offen. Aus der Kücheheraus fragt \theBarbara sehr heiser} Was soll ich denn singen?
+
+\Josef
+Na, halt so ein kleines Lied, so wie früher, du weißt schon.
+
+\Barbara
+\direction{singt mit einer rauen, gebrochenen Stimme} Eia popeia, was raschelt im \direction{bricht ab}
+
+\direction{Die Tür wird aufgerissen, \theAndreas stürzt herein. Er ist verstört und erhitzt}
+
+\Andreas
+Barbara, wo ist Barbara \direction{sinkt auf eine Bank}
+
+\Barbara
+\direction{in der Tür} Was ist geschehen, Andreas?
+
+\Andreas
+Jan ist verhaftet. Militär. Man will auch mich. Könnt Ihr mich verstecken?
+
+\Barbara
+\direction{ist ins Zimmer getreten} Was hast du getan, Andreas?
+
+\Andreas
+Das Maul aufgemacht.
+
+\Josef
+\direction{schließt die Tür zur Küche, in der ein paar \theKinder auftauchen} Pst, sprich nicht so laut, daneben sind Kinder.
+
+\Barbara
+\direction{bringt Andreas ein Glas Wasser} Da hast du Andreas, trink erst einmal. Und mach das Hemd zu. Sei ganz ruhig, dann kannst du erzählen. Hast ja nicht einmal einen Mantel an und rennst so durch den Nebel.
+
+\Andreas
+Das ist kein Nebel, das ist doch kein Nebel. Glaubt das nicht länger. Sie wollen uns ja nur was vorlügen. Schwindel, Schwindel, nichts als Schwindel.
+
+\Josef
+Mensch, nimm dich in acht. Was redest du da.
+
+\Barbara
+Kein Nebel?
+
+\Andreas
+In der Stadt weiå es beinah schon einjeder. Der Jan hat es gesagt, der Jan hat seine Nase in mehr hineingesteckt, als ihr ahnt, der kann auch was erzählen von Sauerstoffpumpen, die heimlich in den Mauern stecken. Deshalb haben sie ihn auch hopp genommen. Und die Luise hat geschrien und gebrüllt wie verrückt. Die hat ihn gern. Ob meine Agnes auch so geschrien hätte? Was meinst du Barbara?
+
+\Barbara
+Sprich nicht davon.
+
+\Andreas
+Ich wollte ihm jedenfalls helfen, dem Jan, und auch der Doktor war dabei, der junge, der Doktor Jonas. Vor dem Kino war es, ihr wisst schon, dem neuen. Jetzt kann man sich denken, weshalb es unter der Erde ist. Na, und da wollten sie auch mir an den Kragen. Ausnahmezustand heißt man das. Und da bin ich noch rasch auf und davon.
+
+\Josef
+Ich verstehe aber noch immer kein Wort.
+
+\Barbara
+Du hast gesagt, dass es kein Nebel ist?
+
+\Andreas
+Es ist kein Nebel, und wenn sie sich noch tausend gelehrte Kommissionen kommen lassen.
+
+\Barbara
+Was ist es denn Andreas? Um Gotteswillen, so sprich doch.
+
+\Andreas
+Ja wisst ihr es denn wirklich noch nicht. \direction{stößt die Worte mühsam hervor} Gift ist es --- Gas --- Giftgas.
+
+\Josef
+Das ist nicht wahr.
+
+\Barbara
+Herrgott im Himmel.
+
+\Andreas
+In unserer eigenen Fabrik erzeugt. Den Herrschaften ist was ausgekommen. Die wissen selber nimmer aus noch ein. Aber vorbereitet waren sie darauf, könnt ihr mich verstecken, wenn man mich suchen kommt?
+
+\Josef
+Du kannst im Schuppen bleiben oder in der Dachkammer. In den Keller kommen die Kinder.
+
+\Barbara
+Du Josef, hör zu. Wenn das nicht der Nebel ist, dann ist es ja gar kein Unglück und kein Schicksal und keine Krankheit.
+
+\Josef
+Gott hat uns schwer geprüft.
+
+\Andreas
+Gott! Gott hat keine Giftgasfabrik.
+
+\Barbara
+Du Josef, hör zu, mir fällt noch was ein. Wenn es nicht der Nebel ist, unsere Agnes, die ist uns ja dann gar nicht bloß gestorben.
+
+\Josef
+Was denn Barbara, was meinst du damit?
+
+\Barbara
+Josef, unsere Agnes, das Kind, das Mädel ist uns ermordet worden.
+
+\Andreas
+Ich spreng die Fabrik in die Luft, ich vertilge diese Bestien.
+
+\Josef
+Schweigt still, um Gotteswillen, die Kinder nebenan---
+
+\Barbara
+Sie haben unsere Agnes vergiftet.
+
+\Andreas
+Ihr bei lebendem Leib die Lungen verbrannt.
+
+\Josef
+Barmherziger Himmel, was redet ihr da, das kann doch nicht sein.
+
+\Andreas
+Geh raus in den Wald und sieh dir das an. Dort ist jeder Grashalm verreckt.
+
+\Barbara
+An unseren Weiden wird es heuer keine Kätzchen mehr geben.
+
+\Andreas
+Agnes hat diese Kätzchen so gern gehabt.
+
+\Josef
+Ich glaub es nicht, ich kann es nicht glauben.
+
+\Andreas
+\direction{springt auf} Hört ihr, ein Auto! Sie kommen schon, um mich zu holen.
+
+\Barbara \direction{schiebt ihn zu einer Seitentüre hinaus} Rasch hinaus in den Schuppen und wenn sie herein sind, läufst du schon auf den Dachboden rauf.
+
+\direction{Gleich darauf kommen der \theGeneraldirektor, \theAlexis, die \theHeilsarmeeschwester und drei \theSoldaten mit einer riesigen Kiste}
+
+\Generaldirektor
+Wir sind doch hier im Wirtshaus am Rand?
+
+\Josef
+Jawohl.
+
+\Alexis
+Sie sind der Wirt?
+
+\Josef
+Jawohl.
+
+\Alexis
+Das ist Ihre Frau?
+
+\Josef
+Jawohl. \direction{\theBarbara tritt mit verschränkten Armen in den Hintergrund}
+
+\Generaldirektor
+\direction{auf sie zutretend} Liebe Frau, wir bewundern Sie alle. Sie haben in diesen schlimmen Zeiten und unter den schwierigsten Umständen den schönsten und edelsten Mut bewiesen. Ich danke Ihnen.
+
+\Barbara
+Ich brauch keinen Dank.
+
+\Generaldirektor
+Sie sollen nicht denken, dass wir nicht wissen, was ein Haus voll fremder Kinder für Sie jetzt bedeutet. Und deshalb haben wir Ihnen die brave Schwester hier als Hilfe mitgebracht.
+
+\Barbara
+Ich brauch keine Hilfe.
+
+\Heilsarmeeschwester
+Liebe Freundin, Sie werden schon noch manche Hilfe brauchen. Weisen Sie mich nicht ab. Ich habe schwerere Arbeit geleistet.
+
+\Alexis
+Die Schwester wird die Kinder herrlich versorgen. Sie wird mit ihnen beten und mit ihnen singen.
+
+\Barbara
+In meinem Haus wird nicht mehr gebetet.
+
+\Heilsarmeeschwester
+Wie?
+
+\Barbara
+Und überhaupt nicht mehr gesungen.
+
+\Generaldirektor
+Aber liebe Frau---
+
+\Josef
+Barbara, was fällt dir denn ein?
+
+\Barbara
+In diesem Haus ist kein Platz mehr für Kinder. Ich weiß nicht, wer die Herren sind, aber falls Sie es noch nicht wissen sollten! In diesem Haus ist wer gestorben, den man vergiftet hat, ein junges Mädel, selber noch ein Kind.
+
+\Generaldirektor
+Aber Beste, was denken Sie denn. Wir wissen doch alle von Ihrem Unglück.
+
+\Barbara
+Das war kein Unglück, Herr.
+
+\Generaldirektor
+Wie meinen Sie?
+
+\Barbara
+Das war ein Verbrechen.
+
+\Josef
+Herr, entschuldigen Sie, sie hat den Tod der Schwester noch nicht überwunden.
+
+\Barbara
+Was sprichst du von Tod. Du weißt so gut wie ich%;B es war ein Mord.
+
+\Alexis
+So ist das wahnsinnige Gerücht auch schon bis hierher vorgedrungen.
+
+\Generaldirektor
+Um Gotteswillen, Sie werden das doch nicht glauben. Hören Sie! Drei Kommissionen von Chemikern und Ärzten haben entschieden, dass es der Nebel ist, nichts anderes als der Nebel. Wir bringen Ihnen die besten Schutzmaßnahmen, wir tun ja, was in unseren Kräften liegt. Vertrauen Sie uns doch. Sehen Sie, hier stehe ich vor Ihnen, der Generaldirektor der ungeheuren Werke---
+
+\Josef
+Der Generaldirektor?
+
+\Generaldirektor
+Ja, das bin ich.
+
+\Josef
+Dort auf dem Tisch liegt ein Zettel für den Generaldirektor. Ein Herr --- ein Mann --- ein Offizier hat ihn hingelegt. Für den Generaldirektor, hat er gesagt.
+
+\direction{\theGeneraldirektor stürzt auf den Zettel zu}.
+
+\Alexis
+Wie? Was? Ein Offizier? Das war Brix.Das kann nur der Oberst gewesen sein. \direction{siehtdem Generaldirektor über die Schulter}
+
+\Generaldirektor
+Alexis, entsetzlich! Es wardie höchste Zeit. Der Nebel muss ja ineiner halben Stunde schon -
+
+\Alexis
+Unmöglich sein, das gibt es nicht.
+
+\Generaldirektor
+Brix sagt niemals, was ernicht weiss. Wenn er doch auf uns gewartethätte.
+
+\Alexis
+Dann ist jetzt keine Zeit mehr zu verlieren. \direction{zu den Soldaten} Packt die Gasmasken aus. Dann muss die Pumpe gleichaufgestellt werden. Alle Kinder sollensofort in den Keller.\direction{Die Soldaten werfen einen Haufen Gasmasken auf den Tisch}
+\Generaldirektor
+Ihr müsst alle Türen und Fenster verstopfen. Wo sind denn die Kinder?
+
+\Josef
+\direction{macht die Tür zur Kücke auf} Hier. Kommtmal herein.\direction{Ein paar Kinder kommen neugierig undverlegen aus der Küche}
+
+\Junge{5}
+Gibts was zu essen?\direction{Da erblicken die Kinder die Gasmaskenauf dem Tisch und stürzen kreischendhinaus}
+
+\Alexis
+Das ist ja eine nette Wirtschaft.
+
+\Heilsarmeeschwester
+Ich werde mit den Kleinensprechen. \direction{ihnen nach}
+
+\Alexis
+\direction{zu den Soldaten} Kommt gleich mit mir, damit wir die Pumpe aufstellen. \direction{zu \theJosef} Führen Sie uns sofort in den Keller. \direction{\theAlexis, \theJosef und die beiden \theSoldaten ab}
+
+\Barbara
+Ich brauch keine Gasmasken und keine Pumpe in meinem Haus. Nehmen Sie die Kinder fort von hier.
+
+\Generaldirektor
+Aber liebste, beste Frau, Sie werden uns doch jetzt nicht im Stich lassen wollen. Und alles nur wegen eines Gerüchts.
+
+\Barbara
+Wenn ein Gericht nicht wahr ist, sperrt man die Leute nicht ein. Wenn ein Gerücht nicht wahr ist, braucht man kein Militär.
+
+\Generaldirektor
+Aber das muss doch jetzt ganz gleichgültig sein. Jetzt gilt es Menschenleben zu retten. In Zeiten der Not, da halten doch alle Menschen zusammen.---
+
+\Barbara
+Das ist jetzt aber keine Not.
+
+\Generaldirektor
+Herr des Himmels, wenn das keine Not sein soll!
+
+\Barbara
+Not ist, wenn der Schnee das Dach eindrückt, wenn das Wasser die Mauern wegreißt, wenn die Hitze das Getreide verdorrt, wenn die Krankheit den Menschen frisst. Wenn aber der Mensch selber den Menschen frisst, ihm nichts zum leben lässt,nicht einmal mehr die Luft, das ist nicht Not, einerlei, wen es trifft.
+
+\Generaldirektor
+\direction{zurückweichend} Ja, was denn sonst als Not?
+
+\Barbara
+Krieg.
+
+\Generaldirektor
+Sie werden doch nicht behaupten wollen ---
+
+\Barbara
+Dort auf der Ofenbank ist mir das Mädel gelegen, es hat sie verbrannt, inwendig verbrannt, sie hat nach Wasser geschrien,und auch das Wasser hat sie verbrannt. Nehmen Sie die Kinder weg, gleich, sofort, hier ist kein Haus mehr für Kinder.
+
+\Generaldirektor
+Aber liebe Frau, Sie, die Sie doch selbst ein Kind erwarten ---
+
+\Barbara
+Sie verstehen das nicht \direction{geht zum Fenster und öffnet die innere Scheibe}
+
+\Generaldirektor
+Was machen Sie da?
+
+\Barbara
+\direction{mit der Hand am Griff des äußeren Fensters} Wenn dieses Kind einmal zur Welt kommt, dann soll keine gute Frau da sein, die ihm Kartoffel kocht und es in einen Keller sperrt, weil draußen überall so ein Nebel ist. Dann soll eine Frau kommen und ein Mann oder vielleicht auch viele Frauen und viele Männer, die ganz was anderes tun, wenn man ihnen die Luft verpesten und die Kinder vergiften will. Nehmen Sie die Kinder fort, oder ich reiße das Fenster auf.
+\end{play}
+
+% ---------
+
+
 \scene{Nachbohren}
+\label{scene:V}
 
 \act{Zeiter Akt}
 \scene{Irrungen}
+\label{scene:VI}
 \scene{Zusammenbruch}
+\label{scene:VII}
 
 \end{document}
