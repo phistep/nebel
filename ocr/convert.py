@@ -62,10 +62,12 @@ def clean_text(text: str) -> str:
     text = text.replace('\n', '')
     # ever speaker on its own line
     text = re.sub(r'([A-Z ]{3,}: )', r'\n\1', text)
+
     # common typos
     text = re.sub(r'\wAe', r'Ä', text)
     text = re.sub(r'\wOe', r'Ö', text)
     text = re.sub(r'\wUe', r'Ü', text)
+
     text = text.replace('KATERINE', 'KATHERINE')
     text = text.replace('Katerine', 'Katherine')
     text = text.replace('BARAARA', 'BARBARA')
@@ -75,6 +77,8 @@ def clean_text(text: str) -> str:
     text = re.sub(r'[^T]HOMSEN', r'THOMSEN', text)
     text = text.replace('Homsen', 'Thomsen')
     text = re.sub(r'[^A]LEXIS', r'ALEXIS', text)
+    text = text.replace('Der DIENER', 'DIENER')
+
     text = text.replace('DIE KINDER:', 'KINDER:')
     text = text.replace('Die KINDER:', 'KINDER:')
     text = text.replace("Ein grosser Junge:", "JUNGE1:")
@@ -85,6 +89,7 @@ def clean_text(text: str) -> str:
     text = text.replace("Der kleine Junge:", "JUNGE3:")
     text = text.replace("Zweiter grosser Junge: ", "JUNGE4:")
     text = text.replace("Ein zweiter grosser Junge:", "JUNGE4:")
+
     text = text.replace("Ein kleines Mädchen:", "MAEDCHEN1:")
     text = text.replace("Das erste kleine Mädchen:", "MAEDCHEN1:")
     text = text.replace("Das kleine Mädchen:", "MAEDCHJEN1:")
