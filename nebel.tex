@@ -44,6 +44,7 @@
 		\raisebox{0.5ex}{\rule{0.3\linewidth}{0.4pt}}
 	\end{center}
 }
+\newcommand{\appearances}[1]{\quad {\footnotesize #1}}
 % TODO refstepcounter
 \newcounter{subscene}
 \setcounter{subscene}{1}
@@ -226,45 +227,53 @@
 	\vspace{\baselineskip}
 	\raggedright
     \theBarbara, \quad schwanger%
-		\quad  (\ref{scene:I}, \ref{scene:IV}, \ref{scene:VI})\\
+		\appearances{\ref{scene:I}, \ref{scene:IV}, \ref{scene:VI}.a, \ref{scene:VII}}\\
 	\theJosef, \quad ihr Mann,%
-		\quad  (\ref{scene:I}, \ref{scene:IV}, \ref{scene:VI})\\
+		\appearances{\ref{scene:I}, \ref{scene:IV}, \ref{scene:VI}.b, \ref{scene:VII}}\\
     \theKathrine, \quad blind%
-		\quad  (\ref{scene:I}, \ref{scene:IV})\\
+		\appearances{\ref{scene:I}, \ref{scene:IV}, \ref{scene:VII}}\\
     \theGregor%
-		\quad  (\ref{scene:I}, \ref{scene:VI})\\
-    \theJan\\
-    \theAndreas\\
+		\appearances{\ref{scene:I}, \ref{scene:III}, \ref{scene:VI}.b}\\
+    \theJan%
+		\appearances{\ref{scene:I}, \ref{scene:III}, \ref{scene:VII}}\\
+    \theAndreas%
+		\appearances{\ref{scene:I}, \ref{scene:IV}}\\
     \theLuise%
-		\quad  (\ref{scene:I}, \ref{scene:VI})\\
+		\appearances{\ref{scene:I}, \ref{scene:VI}.a}\\
     \theAgnes%
-		\quad  (\ref{scene:I})\\
+		\appearances{\ref{scene:I}}\\
     Paul, der \theGeneraldirektor der Chemiefrabrik%
-		\quad  (\ref{scene:II}, \ref{scene:IV}, \ref{scene:V}, \ref{scene:VI})\\
+		\appearances{\ref{scene:II}, \ref{scene:III}, \ref{scene:IV}, \ref{scene:V}, \ref{scene:VI}.c}\\
     \theClarisse, \quad seine Frau%
-		\quad  (\ref{scene:II}, \ref{scene:V}, \ref{scene:VI})\\
+		\appearances{\ref{scene:II}, \ref{scene:V}, \ref{scene:VI}.c}\\
     \theAlexis, \quad Ingenieur%
-		\quad  (\ref{scene:II}, \ref{scene:IV}, \ref{scene:V}, \ref{scene:VI})\\
+		\appearances{\ref{scene:II}, \ref{scene:III}, \ref{scene:IV}, \ref{scene:V}, \ref{scene:VI}.c}\\
     Doktor \theThomsen, \quad Arzt%
-		\quad  (\ref{scene:I}, \ref{scene:II}, \ref{scene:V})\\
+		\appearances{\ref{scene:I}, \ref{scene:II}, \ref{scene:V}}\\
 	Doktor \theJonas, \quad Arzt%
-		\quad  (\ref{scene:II}, \ref{scene:V}, \ref{scene:IV})\\
+		\appearances{\ref{scene:II}, \ref{scene:V}, \ref{scene:IV}, \ref{scene:VI}.d}\\
     \theSalwin, \quad Pressekorrespondent%
-		\quad  (\ref{scene:II}, \ref{scene:VI})\\
+		\appearances{\ref{scene:II}, \ref{scene:VI}.e}\\
     \theBrix, \quad Militär, Chemiker%
-		\quad  (\ref{scene:VI})\\
+		\appearances{\ref{scene:IV}, \ref{scene:VI}.f}\\
     Jakob \theMelchior, \quad ehem. Militär, sein Vertrauter%
-		\quad  (\ref{scene:IV}, \ref{scene:V}, \ref{scene:VI})\\
+		\appearances{\ref{scene:IV}, \ref{scene:V}, \ref{scene:VI}.f}\\
     \theHeilsarmeeschwester%
-		\quad  (\ref{scene:III}, \ref{scene:IV}, \ref{scene:IV})\\
+		\appearances{\ref{scene:III}, \ref{scene:IV}, \ref{scene:IV}.e, \ref{scene:VI}}\\
     \theErsterMann%
-		\quad  (\ref{scene:III}, \ref{scene:VI})\\
+		\appearances{\ref{scene:III}, \ref{scene:VI}.d}\\
     \theZweiterMann%
-		\quad  (\ref{scene:III}, \ref{scene:VI})\\
-    \theSergeant\\
-    \theDiener\\
-    \theKinder\\
-	\theLeute und \theSoldaten.
+		\appearances{\ref{scene:III}, \ref{scene:VI}.d}\\
+    \theSergeant%
+		\appearances{\ref{scene:VII}}\\
+    \theDiener%
+		\appearances{\ref{scene:II}, \ref{scene:V}}\\
+    \theKinder%
+		\appearances{\ref{scene:IV}}\\
+	\theLeute%
+		\appearances{\ref{scene:III}}\\
+	\theSoldaten%
+		\appearances{\ref{scene:IV} \ref{scene:VII}}.
 }
 \lowertitleback{%
 	\footnotesize
