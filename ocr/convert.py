@@ -74,6 +74,7 @@ def clean_text(text: str) -> str:
     text = text.replace('Baraara', 'Barbara')
     text = re.sub(r'(?<!GENERAL)DIREKTOR', r'GENERALDIREKTOR', text)
     text = re.sub(r'^\W* ?DIREKTOR', r'GENERALDIREKTOR', text)
+    text = text.replace("GENERAL DIREKTOR:", "GENERALDIREKTOR:")
     text = re.sub(r'[^T]HOMSEN', r'THOMSEN', text)
     text = text.replace('Homsen', 'Thomsen')
     text = re.sub(r'[^A]LEXIS', r'ALEXIS', text)
@@ -121,6 +122,7 @@ def texify(text: str) -> str:
     text = text.replace(r'\Die Kinder', r'\Kinder')
     text = re.sub(r'\\Maedchen([0-9]+)', r'\n\\Maedchen{\1}', text)
     text = re.sub(r'\\Junge([0-9]+)', r'\n\\Junge{\1}', text)
+    text = text.replace(r"\General Generaldirektor", r"\Generaldirektor")
 
     text = text.replace(r'\Die Beiden Maenner',
                         ('\\ErsterMann \\direction{gemeinsam}\n'
