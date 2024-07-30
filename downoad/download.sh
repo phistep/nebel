@@ -15,8 +15,7 @@ done
 
 magick convert "${BOOK}/*.jpg" "${BOOK}.pdf"
 
-# TODO correct oage numbers (roman cover etc)
-
+# TODO correct page numbers (roman cover etc)
 # PDF /Type /Catalog
 # /PageLabels << /Nums [ 0 << /P (cover) >>
 #                        % labels 1st page with the string "cover"
